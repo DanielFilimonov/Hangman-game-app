@@ -1,4 +1,4 @@
-
+document.addEventListener("DOMContentLoaded", () => {
 	const keyBoard = document.querySelector(".keyboard");
 	const hintText = document.querySelector(".hint-text b");
 	const wordDisplay = document.querySelector(".word-display");
@@ -46,7 +46,7 @@
 		}, 100);
 	};
 
-	const initGame = (button, clickedLetter) => {
+	const handleClick = (button, clickedLetter) => {
 		if (currentWord.includes(clickedLetter)) {
 			[...currentWord].forEach((letter, index) => {
 				if (letter === clickedLetter) {
@@ -72,37 +72,36 @@
 
 	const getRandomWord = () => {
 		const { answer, question } =
-		wordList[Math.floor(Math.random() * wordList.length)];
+			wordList[Math.floor(Math.random() * wordList.length)];
 		console.log(answer);
 		currentWord = answer;
 		hintText.innerText = question;
 		resetGame();
 	};
 
-	for (let i = 1072; i <= 1077; i++) {
-		const button = document.createElement("button");
-		button.innerText = String.fromCharCode(i);
-		keyBoard.appendChild(button);
-		button.addEventListener("click", (e) =>
-			initGame(e.target, String.fromCharCode(i))
-		);
-	}
-
-	const yoButton = document.createElement("button");
-	yoButton.innerText = "ё";
-	keyBoard.appendChild(yoButton);
-	yoButton.addEventListener("click", (e) =>
-		initGame(e.target, String.fromCharCode(i))
-	);
-
-	for (let i = 1078; i <= 1103; i++) {
-		const button = document.createElement("button");
-		button.innerText = String.fromCharCode(i);
-		keyBoard.appendChild(button);
-		button.addEventListener("click", (e) =>
-			initGame(e.target, String.fromCharCode(i))
-		);
-	}
+	const createKeyboard = (keyBoardContainer) => {
+		for (let i = 1072; i <= 1077; i++) {
+			const button = document.createElement("button");
+			button.innerText = String.fromCharCode(i);
+			keyBoardContainer.appendChild(button);
+			button.addEventListener("click", (e) =>
+				handleClick(e.target, String.fromCharCode(i))
+			);
+		}
+		const yoButton = document.createElement("button");
+		yoButton.innerText = "ё";
+		keyBoardContainer.appendChild(yoButton);
+		yoButton.addEventListener("click", (e) => handleClick(e.target, "ё"));
+		for (let i = 1078; i <= 1103; i++) {
+			const button = document.createElement("button");
+			button.innerText = String.fromCharCode(i);
+			keyBoardContainer.appendChild(button);
+			button.addEventListener("click", (e) =>
+				handleClick(e.target, String.fromCharCode(i))
+			);
+		}
+	};
 	getRandomWord();
+	createKeyboard(keyBoard);
 	playAgainBtn.addEventListener("click", getRandomWord);
-
+});
