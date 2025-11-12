@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+
 	const keyBoard = document.querySelector(".keyboard");
 	const hintText = document.querySelector(".hint-text b");
 	const wordDisplay = document.querySelector(".word-display");
@@ -105,4 +105,4 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 	getRandomWord();
 	playAgainBtn.addEventListener("click", getRandomWord);
-});
+
