@@ -10,7 +10,7 @@
 ___
 
 ## **Запуск приложения**
-> Перейти по ссылке: https://danielfilimonov.github.io/Drowing-app/
+> Перейти по ссылке: https://danielfilimonov.github.io/Hangman-game-app/
  
 ___
 
