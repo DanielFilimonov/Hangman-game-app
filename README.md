@@ -1,4 +1,4 @@
-# **Игра "Виселица на JavaScript"**
+# **Игра "Виселица" на JavaScript**
  
 ![Static Badge](https://img.shields.io/badge/JavaScript-%23FFFF00?logo=JavaScript&logoColor=white)
 ![Static Badge](https://img.shields.io/badge/HTML-orange)
